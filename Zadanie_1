@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <iomanip>
+#include <iostream>
+#include <cmath>
+using namespace std;
+int tab[100], wejscie, l, suma = 0, i=0, l_parzyste =0, l_nie_parzyste =0;
+long srednia = 0;
+int main(void) {
+	cout << "Witaj, wpisuj po koleji liczby naturalne, wpisanie liczby 0 zakonczy dzialanie programu";
+
+	do {
+		cout << endl; cin >> wejscie;  
+		if (wejscie != 0) {
+			tab[i] = wejscie; i++; 
+			if ((tab[i - 1] % 2) == 0) {
+				l_parzyste++;
+			}
+			else {
+				l_nie_parzyste++;//sprawdzamy ilosc pazystch i nieparzystych
+			}			
+		}
+		
+	} while (wejscie != 0); //ten fragment kodu przypisuje kolejne wartosci do tablicy
+	//konczy sie gdy uzytkownik poda 0, i nie bedzie sie ono liczylo do tabllicy
+
+	for (int k = 0; k <= i; k++) {
+		suma += tab[k]; l=k;
+	}    //tutaj obliczyliśmy sumę liczb i ich wartości (suma, i)
+
+	if(l!=0)srednia = suma / l; //obliczamy srednia
+
+	cout << "zaokraglona srednia =" << srednia << endl << "suma=" << suma << endl;
+	cout << "liczba parzystych =" << l_parzyste << endl << "liczba nieparzystych =" << l_nie_parzyste;
+	return 0;
+}
